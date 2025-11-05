@@ -1,0 +1,3 @@
+part_no,name,vendor,mtbf_hours,criticality
+PN-ALPHA,Oil Pump,Acme Aero,5000,high
+PN-BETA,Vibration Sensor,Skytel,12000,medium

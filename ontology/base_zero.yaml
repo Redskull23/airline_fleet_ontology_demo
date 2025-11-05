@@ -1,0 +1,54 @@
+
+version: 0.1
+name: Fleet Health Ontology
+entities:
+  Aircraft:
+    description: Physical aircraft unit
+    keys: [aircraft_id]
+    attributes: [tail_number, fleet, model]
+  Flight:
+    description: A single aircraft operation
+    keys: [flight_id]
+    attributes: [aircraft_id, date, route]
+  SensorReading:
+    description: Telemetry reading
+    keys: [reading_id]
+    attributes: [aircraft_id, ts, sensor, value]
+  WorkOrder:
+    description: Maintenance work order
+    keys: [wo_id]
+    attributes: [aircraft_id, part_number, opened_ts, closed_ts, action, ata_code]
+  Part:
+    description: Parts catalog entry
+    keys: [part_number]
+    attributes: [name, vendor, mtbf_hours, criticality]
+  Alert:
+    description: Predictive risk signal
+    keys: [alert_id]
+    attributes: [aircraft_id, sensor, risk_score, created_ts, recommended_action]
+relations:
+  Aircraft_has_SensorReading:
+    from: Aircraft
+    to: SensorReading
+    cardinality: one_to_many
+    via: aircraft_id
+  Aircraft_has_WorkOrder:
+    from: Aircraft
+    to: WorkOrder
+    cardinality: one_to_many
+    via: aircraft_id
+  WorkOrder_uses_Part:
+    from: WorkOrder
+    to: Part
+    cardinality: many_to_one
+    via: part_number
+  Aircraft_has_Flight:
+    from: Aircraft
+    to: Flight
+    cardinality: one_to_many
+    via: aircraft_id
+  Aircraft_has_Alert:
+    from: Aircraft
+    to: Alert
+    cardinality: one_to_many
+    via: aircraft_id

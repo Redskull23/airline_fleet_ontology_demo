@@ -1,0 +1,8 @@
+source: data/raw/parts.csv
+entity: Part
+columns:
+  part_number: part_no
+  name: name
+  vendor: vendor
+  mtbf_hours: mtbf_hours
+  criticality: criticality

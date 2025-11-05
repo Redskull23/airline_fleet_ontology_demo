@@ -1,0 +1,8 @@
+source: data/raw/sensor_readings.csv
+entity: SensorReading
+columns:
+  reading_id: reading_id
+  aircraft_id: ac_id
+  ts: timestamp
+  sensor: sensor
+  value: value

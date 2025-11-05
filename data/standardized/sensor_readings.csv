@@ -1,0 +1,4 @@
+reading_id,aircraft_id,ts,sensor,value
+1001,1,2025-10-01T10:00:00Z,oil_temp,185.0
+1002,1,2025-10-01T10:05:00Z,vibration,3.2
+1003,2,2025-10-01T10:00:00Z,oil_temp,210.0

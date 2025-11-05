@@ -1,0 +1,10 @@
+source: data/raw/work_orders.csv
+entity: WorkOrder
+columns:
+  wo_id: wo_id
+  aircraft_id: ac_id
+  part_number: part_no
+  opened_ts: opened_ts
+  closed_ts: closed_ts
+  action: action
+  ata_code: ata

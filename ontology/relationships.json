@@ -1,0 +1,32 @@
+{
+  "relationships": [
+    {
+      "name": "Aircraft_HAS_SensorReading",
+      "from": "Aircraft",
+      "to": "SensorReading",
+      "type": "HAS_TELEMETRY",
+      "key": "aircraft_id"
+    },
+    {
+      "name": "Aircraft_HAS_WorkOrder",
+      "from": "Aircraft",
+      "to": "WorkOrder",
+      "type": "HAS_MAINTENANCE_ACTION",
+      "key": "aircraft_id"
+    },
+    {
+      "name": "WorkOrder_USES_Part",
+      "from": "WorkOrder",
+      "to": "Part",
+      "type": "CONSUMES_COMPONENT",
+      "key": "part_number"
+    },
+    {
+      "name": "Aircraft_HAS_Alert",
+      "from": "Aircraft",
+      "to": "Alert",
+      "type": "HAS_HEALTH_SIGNAL",
+      "key": "aircraft_id"
+    }
+  ]
+}

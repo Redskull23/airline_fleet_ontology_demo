@@ -1,0 +1,6 @@
+pandas
+pyyaml
+networkx
+matplotlib
+streamlit
+pyvis

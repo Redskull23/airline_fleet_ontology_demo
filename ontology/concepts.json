@@ -1,0 +1,60 @@
+{
+  "concepts": {
+    "Aircraft": {
+      "description": "A physical aircraft unit in the fleet.",
+      "tags": ["asset", "equipment", "fleet", "operational_unit"],
+      "primary_key": "aircraft_id",
+      "attributes": {
+        "tail_number": ["identifier", "aircraft_label"],
+        "fleet": ["organizational_grouping"],
+        "model": ["aircraft_variant", "equipment_class"]
+      }
+    },
+    "Flight": {
+      "description": "A single operational event of the aircraft.",
+      "tags": ["operation", "event", "flight_activity"],
+      "primary_key": "flight_id",
+      "attributes": {
+        "route": ["geo_path", "origin_destination"],
+        "date": ["temporal"]
+      }
+    },
+    "SensorReading": {
+      "description": "Point-in-time telemetry measurement.",
+      "tags": ["telemetry", "time_series", "sensor_data"],
+      "primary_key": "reading_id",
+      "attributes": {
+        "sensor": ["sensor_type"],
+        "value": ["measurement_value", "engineering_unit"],
+        "ts": ["timestamp", "temporal"]
+      }
+    },
+    "WorkOrder": {
+      "description": "Maintenance action associated with an aircraft.",
+      "tags": ["maintenance_event", "operational_action"],
+      "primary_key": "wo_id",
+      "attributes": {
+        "action": ["maintenance_action"],
+        "ata_code": ["failure_classification", "diagnostic"]
+      }
+    },
+    "Part": {
+      "description": "A replaceable or serviceable component.",
+      "tags": ["component", "inventory_item"],
+      "primary_key": "part_number",
+      "attributes": {
+        "criticality": ["risk_importance", "safety_relevance"],
+        "mtbf_hours": ["reliability_metric"]
+      }
+    },
+    "Alert": {
+      "description": "A predictive or threshold-based diagnostic signal.",
+      "tags": ["prediction_output", "maintenance_risk_signal"],
+      "primary_key": "alert_id",
+      "attributes": {
+        "risk_score": ["probability_of_failure", "risk_severity"],
+        "recommended_action": ["suggested_intervention"]
+      }
+    }
+  }
+}

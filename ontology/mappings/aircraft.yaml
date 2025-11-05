@@ -1,0 +1,7 @@
+source: data/raw/aircraft.csv
+entity: Aircraft
+columns:
+  aircraft_id: ac_id
+  tail_number: tail_num
+  fleet: fleet
+  model: model
