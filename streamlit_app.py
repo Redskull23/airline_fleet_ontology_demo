@@ -23,11 +23,11 @@ ART.mkdir(parents=True, exist_ok=True)
 # =========================================================
 st.set_page_config(page_title="Fleet Health Ontology — Demo", layout="wide")
 
-PRIMARY = "#002D72"   # deep blue
-ACCENT  = "#C8102E"   # accent red
-INK     = "#111111"   # text
-MUTED   = "#6B7280"   # gray text
-PANEL   = "#F5F7FA"   # light background
+PRIMARY = "#002D72"   
+ACCENT  = "#C8102E"   
+INK     = "#111111"   
+MUTED   = "#6B7280"   
+PANEL   = "#F5F7FA"   
 
 st.markdown(
     f"""
@@ -112,7 +112,6 @@ def list_standardized_files() -> list[str]:
 # =========================================================
 st.sidebar.header("Pipeline Controls")
 
-# Build Data
 if st.sidebar.button("Build Data", use_container_width=True):
     out, err = run_script(BASE / "scripts" / "ingest.py")
     if err.strip():
@@ -126,7 +125,6 @@ if st.sidebar.button("Build Data", use_container_width=True):
         files = list_standardized_files()
         st.write(files if files else "(none)")
 
-# Validate
 if st.sidebar.button("Validate", use_container_width=True):
     out, err = run_script(BASE / "scripts" / "validate.py")
     if err.strip():
@@ -135,7 +133,6 @@ if st.sidebar.button("Validate", use_container_width=True):
     st.info("Validation output:")
     st.code(out or "(no stdout)", language="bash")
 
-# Render Static Ontology Graph (PNG)
 if st.sidebar.button("Render Ontology Graph", use_container_width=True):
     out, err = run_script(BASE / "scripts" / "ontology_graph.py")
     if err.strip():
@@ -144,7 +141,6 @@ if st.sidebar.button("Render Ontology Graph", use_container_width=True):
     st.success("Static ontology graph rendered.")
     st.code(out or "(no stdout)", language="bash")
 
-# Build Interactive Graph (HTML via vis-network)
 if st.sidebar.button("Build Interactive Graph", use_container_width=True):
     out, err = run_script(BASE / "scripts" / "interactive_graph.py")
     if err.strip():
@@ -153,7 +149,6 @@ if st.sidebar.button("Build Interactive Graph", use_container_width=True):
     st.success("Interactive graph generated.")
     st.code(out or "(no stdout)", language="bash")
 
-# Generate Cypher
 if st.sidebar.button("Generate Cypher", use_container_width=True):
     concepts_path = ONTO / "concepts.json"
     rels_path = ONTO / "relationships.json"
@@ -275,7 +270,6 @@ with tab3:
 
 # --------------- Graphs & Exports Tab ---------------
 with tab4:
-    # Static PNG
     st.markdown('<div class="section-title">Static Ontology Graph (PNG)</div>', unsafe_allow_html=True)
     img = ART / "ontology_graph.png"
     if img.exists():
@@ -283,7 +277,6 @@ with tab4:
     else:
         st.info("Use Render Ontology Graph in the sidebar to generate the static graph.")
 
-    # Interactive HTML
     st.markdown('<div class="section-title">Interactive Graph (Physics)</div>', unsafe_allow_html=True)
     html_path = ART / "ontology_graph_interactive.html"
     if html_path.exists():
@@ -291,7 +284,6 @@ with tab4:
     else:
         st.info("Use Build Interactive Graph in the sidebar to generate the interactive view.")
 
-    # Cypher preview
     st.markdown('<div class="section-title">Neo4j / Cypher Export</div>', unsafe_allow_html=True)
     cy = ART / "ontology_graph.cypher"
     if cy.exists():

@@ -1,3 +1,0 @@
-alert_id,aircraft_id,sensor,risk_score,created_ts,recommended_action
-1,1,vibration,0.7,2025-10-01T10:05:00Z,inspect_bearing
-2,2,oil_temp,0.8,2025-10-01T10:00:00Z,check_oil_cooling

@@ -1,3 +1,0 @@
-wo_id,aircraft_id,part_number,opened_ts,closed_ts,action,ata_code
-5001,1,PN-ALPHA,2025-09-25T12:00:00Z,2025-09-25T18:00:00Z,replace,79-00
-5002,2,PN-BETA,2025-09-28T09:00:00Z,,inspect,72-00
